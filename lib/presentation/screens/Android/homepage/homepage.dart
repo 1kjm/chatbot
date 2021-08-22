@@ -1,7 +1,10 @@
+import 'package:chatbot/domain/fetchdata/fetchdata.action.dart';
+import 'package:chatbot/domain/store/app.state.dart';
 import 'package:chatbot/presentation/screens/Android/chatspage/chatscreen.dart';
 import 'package:chatbot/presentation/screens/Android/homepage/widgets/custom_button/custom_button.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:rive/rive.dart';
 
@@ -65,6 +68,7 @@ class HomeBodyWidget extends StatelessWidget {
 }
 
 void onButtonTapped(BuildContext context) {
+  StoreProvider.of<AppState>(context).dispatch(FetchdataAction(message: 'hi'));
   Navigator.of(context).push(MaterialPageRoute(
     builder: (context) => ChatScreen(),
   ));
